@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
 import Ticket from "../../../(models)/Ticket";
 
-export async function POST(req, { params }) {
+export async function DELETE(req, { params }) {
     try {
         const { id } = params
         await Ticket.findByIdAndDelete(id)
-        return NextResponse.json({ message: 'success' }, { status: 201 })
+        return NextResponse.json({ message: 'success' }, { status: 200 })
     } catch (error) {
         return NextResponse.json({ message: 'error', error }, { status: 500 })
     }
